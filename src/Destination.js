@@ -18,11 +18,14 @@ function Destination(){
         .then(resp =>resp.json())
         .then(data => setDestination(data))
       },[])
+
       function handleFormChange(e){
           setDestination({...destination,[e.target.name]:e.target.value})
       }
+
       function handleSubmit(e){
           e.preventDefault()
+          setClicked(!clicked)
         fetch(`http://localhost:9292/destinations/${id}`, {
             method: "PATCH",
             headers: {
@@ -35,6 +38,7 @@ function Destination(){
       }
     return(
         <div>
+          <Button href="/destinations"  variant="secondary">All Destinations</Button>
         <Card key={destination.id} style={{ width: '18rem' }}>
             <Card.Body>
                 <Card.Title>{destination.name}</Card.Title>
@@ -44,13 +48,13 @@ function Destination(){
                 <Card.Text>
                 Why: {destination.description}
                 </Card.Text>
-                <Button href="/destinations"  variant="secondary">Back</Button>
                 <Button onClick={()=>setClicked(!clicked)}  variant="dark">Edit</Button>
             </Card.Body>
         </Card>
+                
         {clicked?
         <form onSubmit={handleSubmit} style={{ width: '40rem',margin: 'auto' }}>
-        <h2>Create a new destination!</h2>
+        <h2>Edit Destination</h2>
         <Row className='mt-2'>
           <Form.Label column lg={2}>
             Name
@@ -77,7 +81,7 @@ function Destination(){
             <Form.Control type="text" placeholder="Description" name='description' value={destination.description} onChange={handleFormChange} />
           </Col>
         </Row>
-        <Button onSubmit={()=>console.log('submit')} variant="primary" type="submit">
+        <Button onSubmit={()=>handleSubmit()} variant="primary" type="submit">
           Submit
         </Button>
       </form>

@@ -8,7 +8,7 @@ function Header(){
             <Navbar.Brand href="/">
             <img
                 alt=""
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Bike_Park_Bottom.JPG/250px-Bike_Park_Bottom.JPG"
+                src="https://i.pinimg.com/736x/de/a0/f3/dea0f3b7f480b1151c08db4a402a43b9.jpg"
                 width="30"
                 height="30"
                 className="d-inline-block align-top"
@@ -19,7 +19,7 @@ function Header(){
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/destinations">Destinations</NavLink>
                 <NavLink href="/trips">Trips</NavLink>
-                <NavLink href="/stops">Stops</NavLink>
+                {/* <NavLink href="/stops">Stops</NavLink> */}
                 </Nav>
             </Container>
         </Navbar>

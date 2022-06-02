@@ -11,6 +11,8 @@ import Destination from './Destination'
 import Trip from './Trip'
 import Stop from './Stop'
 import NewDestination from './NewDestination';
+import NewTrip from './NewTrip'
+import NewStop from './NewStop'
 
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
             <Route path="/destinations/new" element={<NewDestination/>} />
             <Route path="/trips" element={<Trips/>} />
             <Route path="/trips/:id" element={<Trip/>} />
-            <Route path="/stops" element={<Stops/>} />
+            <Route path="/trips/:id/new_stop" element={<NewStop/>} />
+            <Route path="/trips/new" element={<NewTrip/>} />
+            {/* <Route path="/stops" element={<Stops/>} /> */}
             <Route path="/stops/:id" element={<Stop/>} />
           </Routes>
 </div>
