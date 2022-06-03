@@ -57,11 +57,6 @@ function Trip(){
       }
 
       function handleDelete(e){
-        // setTrip({...trip,["expanded_stops"]:trip.expanded_stops.filter(stop=>stop.id!=e.target.name)})
-        // trip.expanded_stops=trip.expanded_stops.filter(stop=>stop.id!=e.target.name)
-        // console.log(trip.expanded_stops.filter(stop=>stop.id!=e.target.name))
-        // console.log(trip)
-        // console.log(trip.expanded_stops.filter(stop=>stop.id!=e.target.name))
         fetch(`http://localhost:9292/stops/${e.target.name}`, {
       method: "DELETE",
     })
@@ -70,7 +65,7 @@ function Trip(){
       }
     return(
         <div>
-          <p>{trip.title}</p>
+          <p>{trip.description}</p>
         {trip.expanded_stops.map(stop=> {
                 return (
                   
